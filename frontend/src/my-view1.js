@@ -21,7 +21,7 @@ class MyView1 extends PolymerElement {
           padding: 10px;
         }
       </style>
-
+      <h1>A tu alcanze</h1>
       <div class="card">
         <h1>About</h1>
         <p>banana.</p>
