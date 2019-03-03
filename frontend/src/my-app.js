@@ -88,6 +88,7 @@ class MyApp extends PolymerElement {
             <a name="list-services" href="[[rootPath]]list-services">Nuestros servicios</a>
             <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
             <a name="user-data" href="[[rootPath]]user-data">Mis datos</a>
+            <a name="real-time" href="[[rootPath]]real-time">Real Time</a>
           </iron-selector>
         </app-drawer>
 
@@ -106,6 +107,7 @@ class MyApp extends PolymerElement {
             <list-services name="list-services"></list-services>
             <user-data name="user-data"></user-data>
             <list-packages name="list-packages"></list-packages>
+            <real-time name="real-time"></real-time>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -138,7 +140,7 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'about-us';
-    } else if (['about-us', 'list-services', 'user-data','list-packages'].indexOf(page) !== -1) {
+    } else if (['about-us', 'list-services', 'user-data','list-packages','real-time'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -167,6 +169,9 @@ class MyApp extends PolymerElement {
         break;
       case 'list-packages':
         import ('./list-packages.js');
+        break;
+      case 'real-time':
+        import('./real-time.js');
         break;
       case 'view404':
         import('./my-view404.js');
