@@ -62,11 +62,27 @@ class LoginForm extends PolymerElement {
           cursor: pointer;
         }
 
+        .center{
+          text-align: center;
+        }
+
+        img{
+          width: 50%;
+          height: 50%;
+          text-align: center;
+        }
+
 
       </style>
     <article>
-		<header>
-			<h2 style="color: white;">POLYTHON 2019</h2>
+    <header>
+      <div class="center">
+      <br>
+      
+      <img src="./images/Recurso 5@2x.png">
+      <h2 style="color: white;">POLYTECH</h2>
+      </div>
+			
 		</header>
 
 		<form on-submit="_handleLogin">
