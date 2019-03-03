@@ -1,8 +1,19 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
-import '@polymer/iron-jsonp-library/iron-jsonp-library.js'
+import '@polymer/iron-jsonp-library/iron-jsonp-library.js';
+
 
 class RealTime extends PolymerElement {
+  static get properties() { 
+    return { 
+        map: {
+            type: Object
+        },
+        endAddress: {
+            type: Object
+        }
+    }
+}
   static get template() {
     return html`
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
@@ -44,10 +55,23 @@ class RealTime extends PolymerElement {
   }
 
   initMap() {
-    console.log(this.shadowRoot.getElementById('map'));
-    let map = new google.maps.Map(this.shadowRoot.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
+    this.map = new google.maps.Map(this.shadowRoot.getElementById('map'), {
+      center: {lat: 19.428647, lng: -99.206628},
+      zoom: 8,
+      disableDefaultUI: true
+    });
+    this.initMakers();
+  }
+
+  initMakers() {
+    let _latlng = { lat: 19.428647, lng: -99.206628 };
+    this.endAddress = new google.maps.LatLng(_latlng);
+    this.pinA = new google.maps.Marker({
+      position: this.endAddress,
+      map: this.map
+    });
+    this.pinB = new google.maps.Marker({
+      map: this.map
     });
   }
 
