@@ -84,9 +84,10 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="[[rootPath]]view1">View One</a>
+            <a name="about-us" href="[[rootPath]]about-us">Acerca de nosotros</a>
             <a name="view2" href="[[rootPath]]view2">View Two</a>
             <a name="view3" href="[[rootPath]]view3">View Three</a>
+            <a name="view4" href="[[rootPath]]view4">View Four</a>
           </iron-selector>
         </app-drawer>
 
@@ -101,9 +102,10 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <my-view1 name="view1"></my-view1>
+            <about-us name="about-us"></about-us>
             <my-view2 name="view2"></my-view2>
             <my-view3 name="view3"></my-view3>
+            <my-view4 name="view4"></my-view4>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -136,7 +138,7 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'view1';
-    } else if (['view1', 'view2', 'view3'].indexOf(page) !== -1) {
+    } else if (['about-us', 'view2', 'view3','view4'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -154,14 +156,17 @@ class MyApp extends PolymerElement {
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
     switch (page) {
-      case 'view1':
-        import('./my-view1.js');
+      case 'about-us':
+        import('./about-us.js');
         break;
       case 'view2':
         import('./my-view2.js');
         break;
       case 'view3':
         import('./my-view3.js');
+        break;
+      case 'view4':
+        import ('./my-view4.js');
         break;
       case 'view404':
         import('./my-view404.js');
