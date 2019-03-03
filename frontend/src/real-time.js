@@ -9,8 +9,27 @@ class RealTime extends PolymerElement {
         map: {
             type: Object
         },
+        startAddress: {
+          type: Object
+        },
         endAddress: {
             type: Object
+        },
+        rendererOptions: {
+          type: Object,
+          value: {
+            strokeColor: '#237ABA',
+            strokeOpacity: 0.9,
+            strokeWeight: 3.5,
+            fillColor: '#237ABA',
+            fillOpacity: 0.35
+          }
+        },
+        pinB: {
+          type: Object
+        },
+        pinA: {
+          type: Object
         }
     }
 }
@@ -37,6 +56,12 @@ class RealTime extends PolymerElement {
             library-loaded="{{loaded}}">
         </iron-jsonp-library>
       <span>Library Loaded: [[loaded]]</span>
+      <maps-directions
+          renderer-options = "[[rendererOptions]]"
+          map="{{map}}"
+          origin="[[startAddress]]"
+          destination="[[endAddress]]"
+        ></maps-directions>
       `;
       
   }
@@ -64,6 +89,8 @@ class RealTime extends PolymerElement {
   }
 
   initMakers() {
+    let _latlat = { lat: 19.427574, lng: -99.204418 };
+    this.startAddress = new google.maps.LatLng(_latlat);
     let _latlng = { lat: 19.428647, lng: -99.206628 };
     this.endAddress = new google.maps.LatLng(_latlng);
     this.pinA = new google.maps.Marker({
@@ -71,6 +98,7 @@ class RealTime extends PolymerElement {
       map: this.map
     });
     this.pinB = new google.maps.Marker({
+      position: this.startAddress,
       map: this.map
     });
   }
