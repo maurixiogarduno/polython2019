@@ -8,7 +8,8 @@ class ListItems extends PolymerElement {
         return { 
             listItems: {
                 type: Array,
-                value: []
+                value: [],
+                notify: true
             },
             itemsSelected: {
                 type: Array,
