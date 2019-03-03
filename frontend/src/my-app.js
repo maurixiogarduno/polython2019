@@ -22,6 +22,7 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
+import './loginForm.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -40,6 +41,10 @@ class MyApp extends PolymerElement {
           --app-secondary-color: black;
 
           display: block;
+        }
+
+        :host([hidden]), [hidden] {
+          display: none !important;
         }
 
         app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -78,8 +83,9 @@ class MyApp extends PolymerElement {
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
+      <login-form hidden$="[[hideLogin]]" on-login-success="_handleSesion"></login-form>
+      <app-drawer-layout fullbleed="" narrow="{{narrow}}" hidden$="[[!hideLogin]]">
 
-      <app-drawer-layout fullbleed="" narrow="{{narrow}}">
         <!-- Drawer content -->
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
@@ -114,16 +120,20 @@ class MyApp extends PolymerElement {
   }
 
   static get properties() {
-    return {
-      page: {
-        type: String,
-        reflectToAttribute: true,
-        observer: '_pageChanged'
-      },
-      routeData: Object,
-      subroute: Object
-    };
-  }
+        return {
+            page: {
+                type: String,
+                reflectToAttribute: true,
+                observer: '_pageChanged'
+            },
+            routeData: Object,
+            subroute: Object,
+            hideLogin: {
+                type: Boolean,
+                value: false
+            }
+        };
+    }
 
   static get observers() {
     return [
@@ -146,9 +156,13 @@ class MyApp extends PolymerElement {
 
     // Close a non-persistent drawer when the page & route are changed.
     if (!this.$.drawer.persistent) {
-      this.$.drawer.close();
-    }
+            this.$.drawer.close();
+        }
   }
+
+  _handleSesion() {
+       this.hideLogin = true;
+   }
 
   _pageChanged(page) {
     // Import the page component on demand.
