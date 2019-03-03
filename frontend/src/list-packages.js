@@ -17,25 +17,27 @@ class ListPackages extends PolymerElement {
     }
     static get template() {
         return html `
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
         <style>
           :host {
             position: relative;
-            padding: 10px;
+            padding: 1.5rem;
           }
 
           .contenedor{
             margin-top: 3%;
           }
 
+          .buttonM {
+            padding-left: 1.5rem;
+          }
+
         </style>
         <template is="dom-if" if="[[detailEnabled]]">
+          <div class="buttonM">
+            <button type="button" class="btn btn-light" on-click="showDetails">Regresar</button>
+          </div>
           <selection-items></selection-items>
         </template>
         <template is="dom-if" if="[[!detailEnabled]]">
@@ -47,7 +49,7 @@ class ListPackages extends PolymerElement {
                     <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
                       <h3 class="uk-card-title">[[item.title]]</h3>
                       <p>[[item.description]]</p>
-                      <button class="uk-button uk-button-text">Contratar</button>
+                      <button class="uk-button uk-button-text" on-click="showDetails">Contratar</button>
                     </div>
                   </div>
                 </div>
@@ -66,6 +68,10 @@ class ListPackages extends PolymerElement {
         {title:'Paquete3',description: 'Paquete estudiante'}, 
         {title:'Paquete4',description: 'Paquete oficina'}];
       }
+    
+    showDetails(payload) {
+      this.set('detailEnabled', !this.detailEnabled );
+    }
 }
 
 window.customElements.define('list-packages', ListPackages);

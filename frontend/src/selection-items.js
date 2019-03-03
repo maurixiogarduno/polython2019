@@ -31,12 +31,13 @@ class SelectionItems extends PolymerElement {
     return html`
         <style include="shared-styles">
         </style>
-        <list-items list-items='[[listItems]]'
-        on-list-items-changed="listItemsChanged"
-        ></list-items>
-        <count-items-value list-items='[[listItems]]'
-        ></count-items-value>
-
+        <div class="card">
+            <list-items list-items='[[listItems]]'
+            on-list-items-changed="listItemsChanged"
+            ></list-items>
+            <count-items-value list-items='[[listItems]]'
+            ></count-items-value>
+        </div>
     `;
     }
 
