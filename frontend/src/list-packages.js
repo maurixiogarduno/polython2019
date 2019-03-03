@@ -3,101 +3,69 @@ import './shared-styles.js';
 import './selection-items.js';
 
 class ListPackages extends PolymerElement {
+    static get properties() { 
+      return { 
+        detailEnabled: {
+            type: Boolean,
+            value: false
+        },
+        arrayPackages: {
+          type: Array,
+          value: []
+        }
+      }
+    }
     static get template() {
         return html `
 
-
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-        <style include="shared-styles">
+        <style>
           :host {
-            display: block;
-
+            position: relative;
             padding: 10px;
           }
+
           .contenedor{
-          margin-top: 3%;
-        }
+            margin-top: 3%;
+          }
 
         </style>
-
-        <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-
-          <div class="contenedor uk-animation-toggle">
-              <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
-                  <h3 class="uk-card-title">Paquete 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <button class="uk-button uk-button-text">Contratar</button>
-              </div>
-          </div>
-
-
-          </div>
-          <div class="col-sm-6">
-
-          <div class="contenedor uk-animation-toggle">
-              <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
-                  <h3 class="uk-card-title">Paquete 2</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <button class="uk-button uk-button-text">Contratar</button>
-              </div>
-          </div>
-
-          </div>
-        </div>
-
-      </div>
-
-
-
-      <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-
-
-
-        <div class="contenedor uk-animation-toggle">
-            <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
-                <h3 class="uk-card-title">Paquete 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <button class="uk-button uk-button-text">Contratar</button>
+        <template is="dom-if" if="[[detailEnabled]]">
+          <selection-items></selection-items>
+        </template>
+        <template is="dom-if" if="[[!detailEnabled]]">
+          <div class="container">
+            <div class="row">
+              <template id="listRepeat" is="dom-repeat" items="[[arrayPackages]]">
+                <div class="col-sm-6">
+                  <div class="contenedor uk-animation-toggle">
+                    <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
+                      <h3 class="uk-card-title">[[item.title]]</h3>
+                      <p>[[item.description]]</p>
+                      <button class="uk-button uk-button-text">Contratar</button>
+                    </div>
+                  </div>
+                </div>
+              </template>
             </div>
-        </div>
-
-
-
-        </div>
-        <div class="col-sm-6">
-
-
-        <div class="contenedor uk-animation-toggle">
-            <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
-                <h3 class="uk-card-title">Paquete 4</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <button class="uk-button uk-button-text">Contratar</button>
-            </div>
-        </div>
-
-
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-        <list-items list-items='[{"name":"Plomeria","status":"disable"}, {"name":"Ambulancia", "status":"disable"}]'></list-items>
-
-        <selection-items></selection-items>
-
+          </div>
+        </template>
       `;
     }
+
+    connectedCallback() {
+      super.connectedCallback();
+      this.arrayPackages = [
+        {title:'Paquete 1',description: 'Paquete deportivo'}, 
+        {title:'Paquete2',description: 'Paquete ama de casa'}, 
+        {title:'Paquete3',description: 'Paquete estudiante'}, 
+        {title:'Paquete4',description: 'Paquete oficina'}];
+      }
 }
 
 window.customElements.define('list-packages', ListPackages);
