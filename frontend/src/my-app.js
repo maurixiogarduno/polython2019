@@ -91,7 +91,6 @@ class MyApp extends PolymerElement {
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="about-us" href="[[rootPath]]about-us">Acerca de nosotros</a>
-            <a name="list-services" href="[[rootPath]]list-services">Nuestros servicios</a>
             <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
             <a name="user-data" href="[[rootPath]]user-data">Mis datos</a>
             <a name="real-time" href="[[rootPath]]real-time">Real Time</a>
@@ -110,7 +109,6 @@ class MyApp extends PolymerElement {
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <about-us name="about-us"></about-us>
-            <list-services name="list-services"></list-services>
             <user-data name="user-data"></user-data>
             <list-packages name="list-packages"></list-packages>
             <real-time name="real-time"></real-time>
@@ -150,10 +148,10 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'about-us';
-    } else if (['about-us', 'list-services', 'user-data','list-packages','real-time'].indexOf(page) !== -1) {
+    } else if (['about-us', 'user-data','list-packages','real-time'].indexOf(page) !== -1) {
       this.page = page;
     } else {
-      this.page = 'view404';
+      this.page = 'about-us';
     }
 
     // Close a non-persistent drawer when the page & route are changed.
@@ -174,9 +172,6 @@ class MyApp extends PolymerElement {
     switch (page) {
       case 'about-us':
         import('./about-us.js');
-        break;
-      case 'list-services':
-        import('./list-services.js');
         break;
       case 'user-data':
         import('./user-data.js');
