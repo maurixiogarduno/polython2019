@@ -36,7 +36,7 @@ class MyApp extends PolymerElement {
     return html`
       <style>
         :host {
-          --app-primary-color: #4285f4;
+          --app-primary-color: black;
           --app-secondary-color: black;
 
           display: block;
@@ -97,7 +97,7 @@ class MyApp extends PolymerElement {
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">My App</div>
+              <div main-title="">Polython 2019</div>
             </app-toolbar>
           </app-header>
 
