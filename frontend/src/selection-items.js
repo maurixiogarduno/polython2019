@@ -18,12 +18,7 @@ class SelectionItems extends PolymerElement {
         return { 
             listItems: {
                 type: Array,
-                value: [{name:"Plomeria",status:"disable", value: 20},
-                {name:"Ambulancia", status:"disable", value: 20}]
-            },
-            modalStatus: {
-                type: Boolean,
-                value: true
+                value: []
             }
         }
     }
@@ -39,23 +34,6 @@ class SelectionItems extends PolymerElement {
             ></count-items-value>
         </div>
     `;
-    }
-
-    listItemsChanged(payload) {
-        let auxArray = [];
-        auxArray = this.listItems;
-        this.listItems = [];
-        this.listItems = auxArray;
-    }
-
-    changeStatusModal() {
-        if (this.modalStatus) {
-            this.set('modalStatus',!this.modalStatus);
-            this.shadowRoot.getElementById('modal').open();
-        } else {
-            this.set('modalStatus',!this.modalStatus);
-            this.shadowRoot.getElementById('modal').open();
-        }
     }
 }
 

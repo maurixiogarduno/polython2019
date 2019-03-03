@@ -39,6 +39,10 @@ class ListItems extends PolymerElement {
       `;
     }
 
+    /**
+     * Change class if item is selected
+     * @param {*} payload: Data item selected
+     */
     itemSelected(payload) {
         const labelSelected = payload.model.item.name;
         const indexSelected = payload.model.index;

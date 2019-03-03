@@ -38,7 +38,10 @@ class ListPackages extends PolymerElement {
           <div class="buttonM">
             <button type="button" class="btn btn-light" on-click="showDetails">Regresar</button>
           </div>
-          <selection-items></selection-items>
+          <selection-items list-items='
+            [{"name":"Plomeria","status":"disable", "value": 20},
+            {"name":"Ambulancia", "status":"disable", "value": 20}]'
+          ></selection-items>
         </template>
         <template is="dom-if" if="[[!detailEnabled]]">
           <div class="container">
@@ -69,6 +72,9 @@ class ListPackages extends PolymerElement {
         {title:'Paquete4',description: 'Paquete oficina'}];
       }
     
+    /**
+     * Active details about package
+     */
     showDetails(payload) {
       this.set('detailEnabled', !this.detailEnabled );
     }
