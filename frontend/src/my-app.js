@@ -85,7 +85,7 @@ class MyApp extends PolymerElement {
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="about-us" href="[[rootPath]]about-us">Acerca de nosotros</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
+            <a name="my-services" href="[[rootPath]]my-services">Servicios</a>
             <a name="view3" href="[[rootPath]]view3">View Three</a>
             <a name="view4" href="[[rootPath]]view4">View Four</a>
           </iron-selector>
@@ -103,7 +103,7 @@ class MyApp extends PolymerElement {
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <about-us name="about-us"></about-us>
-            <my-view2 name="view2"></my-view2>
+            <my-services name="my-services"></my-services>
             <my-view3 name="view3"></my-view3>
             <my-view4 name="view4"></my-view4>
             <my-view404 name="view404"></my-view404>
@@ -137,8 +137,8 @@ class MyApp extends PolymerElement {
      // If no page was found in the route data, page will be an empty string.
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
-      this.page = 'view1';
-    } else if (['about-us', 'view2', 'view3','view4'].indexOf(page) !== -1) {
+      this.page = 'about-us';
+    } else if (['about-us', 'my-services', 'view3','view4'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -159,8 +159,8 @@ class MyApp extends PolymerElement {
       case 'about-us':
         import('./about-us.js');
         break;
-      case 'view2':
-        import('./my-view2.js');
+      case 'my-services':
+        import('./my-services.js');
         break;
       case 'view3':
         import('./my-view3.js');
