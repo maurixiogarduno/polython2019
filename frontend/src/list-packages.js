@@ -1,7 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 
-class MyView4 extends PolymerElement {
+class ListPackages extends PolymerElement {
     static get template() {
         return html `
         <style include="shared-styles">
@@ -22,4 +22,4 @@ class MyView4 extends PolymerElement {
     }
 }
 
-window.customElements.define('my-view4', MyView4);
+window.customElements.define('list-packages', ListPackages);

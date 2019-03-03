@@ -85,9 +85,9 @@ class MyApp extends PolymerElement {
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="about-us" href="[[rootPath]]about-us">Acerca de nosotros</a>
-            <a name="my-services" href="[[rootPath]]my-services">Servicios</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
-            <a name="view4" href="[[rootPath]]view4">View Four</a>
+            <a name="list-services" href="[[rootPath]]list-services">Nuestros servicios</a>
+            <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
+            <a name="user-data" href="[[rootPath]]user-data">Mis datos</a>
           </iron-selector>
         </app-drawer>
 
@@ -103,9 +103,9 @@ class MyApp extends PolymerElement {
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <about-us name="about-us"></about-us>
-            <my-services name="my-services"></my-services>
-            <my-view3 name="view3"></my-view3>
-            <my-view4 name="view4"></my-view4>
+            <list-services name="list-services"></list-services>
+            <user-data name="user-data"></user-data>
+            <list-packages name="list-packages"></list-packages>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -138,7 +138,7 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'about-us';
-    } else if (['about-us', 'my-services', 'view3','view4'].indexOf(page) !== -1) {
+    } else if (['about-us', 'list-services', 'user-data','list-packages'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -159,14 +159,14 @@ class MyApp extends PolymerElement {
       case 'about-us':
         import('./about-us.js');
         break;
-      case 'my-services':
-        import('./my-services.js');
+      case 'list-services':
+        import('./list-services.js');
         break;
-      case 'view3':
-        import('./my-view3.js');
+      case 'user-data':
+        import('./user-data.js');
         break;
-      case 'view4':
-        import ('./my-view4.js');
+      case 'list-packages':
+        import ('./list-packages.js');
         break;
       case 'view404':
         import('./my-view404.js');
