@@ -1,6 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 
-class CellsMapsDirectionsMmfs extends PolymerElement  {
+class MapsDirectionsMmfs extends PolymerElement  {
     static get properties() {
       return {
         directionsService: {
@@ -112,4 +112,4 @@ class CellsMapsDirectionsMmfs extends PolymerElement  {
       });
     }
   }
-  window.customElements.define('cells-maps-direction', CellsMapsDirectionsMmfs);
+  window.customElements.define('maps-direction', MapsDirectionsMmfs);

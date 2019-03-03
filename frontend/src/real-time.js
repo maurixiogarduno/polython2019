@@ -1,7 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
 import '@polymer/iron-jsonp-library/iron-jsonp-library.js';
-
+import './maps-directions';
 
 class RealTime extends PolymerElement {
   static get properties() { 
