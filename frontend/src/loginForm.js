@@ -66,6 +66,7 @@ class LoginForm extends PolymerElement {
         }
 
         .center{
+          padding-top: 3rem;
           text-align: center;
         }
 
@@ -75,6 +76,9 @@ class LoginForm extends PolymerElement {
           text-align: center;
         }
 
+        .form {
+          margin: 3rem;
+        }
 
       </style>
     <article>
@@ -88,7 +92,7 @@ class LoginForm extends PolymerElement {
 			
 		</header>
 
-		<form on-submit="_handleLogin">
+		<form on-submit="_handleLogin" class="form">
             
 
             <fieldset class="uk-fieldset">
