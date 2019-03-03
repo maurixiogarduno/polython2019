@@ -11,6 +11,9 @@ import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
 class LoginForm extends PolymerElement {
     static get template() {
         return html `
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+        
       <style>
         :host {
           display: block;
@@ -80,22 +83,34 @@ class LoginForm extends PolymerElement {
       <br>
       
       <img src="./images/Recurso 5@2x.png">
-      <h2 style="color: white;">POLYTECH</h2>
+      <h2 style="color: black;">POLYTECH</h2>
       </div>
 			
 		</header>
 
 		<form on-submit="_handleLogin">
-            <div class="content">
+            
 
-              <input id="inputemail" type="text" placeholder="Enter Username" name="uname" value="[[username]]" required>
+            <fieldset class="uk-fieldset">
+
+            <div class="uk-margin">
+            <input class="uk-input" id="inputemail" type="text" placeholder="Enter email" name="uname" value="[[username]]" required>
+          </div>
+
+          <div class="uk-margin">
+            <input class="uk-input" id="inputpassword" type="password" placeholder="Enter password" name="psw" value="[[password]]" required>
+          </div>
+
+          <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">Login</button>
+          <button class="uk-button uk-button-secondary uk-width-1-1">Registro</button>
 
 
-              <input id="inputpassword" type="password" placeholder="Enter Password" name="psw" value="[[password]]" required>
+          
+            
+            </fieldset>
 
-              <button type="submit">Login</button>
-              <button type="" class="registro">Registro</button>
-            </div>
+             
+            
         </form>
 
     </article>

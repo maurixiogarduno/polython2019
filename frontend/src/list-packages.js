@@ -3,17 +3,17 @@ import './shared-styles.js';
 import './selection-items.js';
 
 class ListPackages extends PolymerElement {
-    static get properties() { 
-      return { 
-        detailEnabled: {
-            type: Boolean,
-            value: false
-        },
-        arrayPackages: {
-          type: Array,
-          value: []
+    static get properties() {
+        return {
+            detailEnabled: {
+                type: Boolean,
+                value: false
+            },
+            arrayPackages: {
+                type: Array,
+                value: []
+            }
         }
-      }
     }
     static get template() {
         return html `
@@ -27,10 +27,12 @@ class ListPackages extends PolymerElement {
           .contenedor{
             margin-top: 3%;
           }
-
-          .buttonM {
-            padding-left: 1.5rem;
+          .cartas{
+            margin: 0%;
+            margin-top: 2%;
           }
+
+          
 
         </style>
         <template is="dom-if" if="[[detailEnabled]]">
@@ -43,7 +45,7 @@ class ListPackages extends PolymerElement {
           ></selection-items>
         </template>
         <template is="dom-if" if="[[!detailEnabled]]">
-          <div class="container">
+          <div class="cartas">
             <div class="row">
               <template id="listRepeat" is="dom-repeat" items="[[arrayPackages]]">
                 <div class="col-sm-6">
@@ -63,19 +65,20 @@ class ListPackages extends PolymerElement {
     }
 
     connectedCallback() {
-      super.connectedCallback();
-      this.arrayPackages = [
-        {title:'Paquete 1',description: 'Paquete deportivo'}, 
-        {title:'Paquete2',description: 'Paquete ama de casa'}, 
-        {title:'Paquete3',description: 'Paquete estudiante'}, 
-        {title:'Paquete4',description: 'Paquete oficina'}];
-      }
-    
+        super.connectedCallback();
+        this.arrayPackages = [
+            { title: 'Paquete 1', description: 'Paquete deportivo' },
+            { title: 'Paquete2', description: 'Paquete ama de casa' },
+            { title: 'Paquete3', description: 'Paquete estudiante' },
+            { title: 'Paquete4', description: 'Paquete oficina' }
+        ];
+    }
+
     /**
      * Active details about package selected
      */
     showDetails(payload) {
-      this.set('detailEnabled', !this.detailEnabled );
+        this.set('detailEnabled', !this.detailEnabled);
     }
 }
 

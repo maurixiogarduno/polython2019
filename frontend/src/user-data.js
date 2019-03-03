@@ -18,8 +18,8 @@ import '@polymer/paper-radio-group/paper-radio-group.js';
 import '@polymer/paper-button/paper-button.js';
 
 class UserData extends PolymerElement {
-  static get template() {
-    return html`
+    static get template() {
+        return html `
       <style include="shared-styles">
         :host {
           display: block;
@@ -32,9 +32,16 @@ class UserData extends PolymerElement {
         .line {
           width: 50%;
         }
+
+        iron-form{
+          background-color: #FEFBFB;
+          margin-top: 5%;
+        }
+        
+
       </style>
 
-      <div class="card">
+  
         <iron-form>
         <form id="form" method="get" action="/form/handler">
           <h2>Mis datos</h2>
@@ -65,16 +72,16 @@ class UserData extends PolymerElement {
           <paper-button class="button-acept" raised>Aceptar</paper-button>
         </form>
       </iron-form>
-      </div>
-    `;
-  }
 
-  /**
-   * Reset all values in the forms
-   */
-  resetForm() {
-    this.shadowRoot.getElementById('form').reset();
-  }
+    `;
+    }
+
+    /**
+     * Reset all values in the forms
+     */
+    resetForm() {
+        this.shadowRoot.getElementById('form').reset();
+    }
 }
 
 window.customElements.define('user-data', UserData);

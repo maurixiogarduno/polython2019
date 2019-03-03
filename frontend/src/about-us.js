@@ -13,8 +13,8 @@ import './shared-styles.js';
 import './card-view.js';
 
 class AboutUs extends PolymerElement {
-  static get template() {
-    return html`
+    static get template() {
+        return html `
       <style include="shared-styles">
         :host {
           display: block;
@@ -24,7 +24,7 @@ class AboutUs extends PolymerElement {
       </style>
       <card-view></card-view>
     `;
-  }
+    }
 }
 
 window.customElements.define('about-us', AboutUs);

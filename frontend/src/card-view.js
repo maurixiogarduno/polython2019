@@ -19,22 +19,26 @@ class CardView extends PolymerElement {
             padding: 20px;
           }
 
-          .imagen{
-            border-radius: 50px 20px;
+          peper-card{
+            width: 100%;
           }
+
+          
         }
       </style>
 
-      <div class="row">
-        <div class="col-sm-6">
+
+       
           <div class="flex-container">
             <div>
-              <paper-card class="imagen" heading="" image="./images/img1.png" alt="Emmental">
+              <paper-card class="imagen" heading="" image="./images/img1.svg" alt="Emmental">
               </paper-card>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div>
+
+        
           <div class="flex-container">
             <div>
               <paper-card heading="Servicio" alt="Emmental">
@@ -47,8 +51,8 @@ class CardView extends PolymerElement {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
+
     `;
     }
 }
