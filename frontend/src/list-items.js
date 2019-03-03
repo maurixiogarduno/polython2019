@@ -23,6 +23,10 @@ class ListItems extends PolymerElement {
         <style include="styles/list-items-styles"></style>
 
         <div class="card">
+        <paper-item
+            class="head">
+            <h2>Servicios incluidos</h2>
+        </paper-item>
             <template id="listRepeat" is="dom-repeat" items="[[listItems]]">
                 <paper-item
                     class$="{{item.status}} container" 

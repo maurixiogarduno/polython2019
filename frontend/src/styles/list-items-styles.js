@@ -48,6 +48,13 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
             background-color: ##e0e0e0;
         }
       }
+
+      .head {
+        --paper-item: {
+          background-color: #72d1a357;
+          color: black;
+      }
+      }
     </style>
   </template>
 </dom-module>`;
