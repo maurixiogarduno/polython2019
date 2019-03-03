@@ -3,6 +3,18 @@ import './shared-styles.js';
 import './selection-items.js';
 
 class ListPackages extends PolymerElement {
+<<<<<<< HEAD
+    static get properties() {
+        return {
+            detailEnabled: {
+                type: Boolean,
+                value: false
+            },
+            arrayPackages: {
+                type: Array,
+                value: []
+            }
+=======
     static get properties() { 
       return { 
         detailEnabled: {
@@ -16,8 +28,8 @@ class ListPackages extends PolymerElement {
         listItems: {
           type: Array,
           value: []
+>>>>>>> ed849cced8a3c4b76c37b84ab6bae2b562b23012
         }
-      }
     }
     static get template() {
         return html `
@@ -31,10 +43,12 @@ class ListPackages extends PolymerElement {
           .contenedor{
             margin-top: 3%;
           }
-
-          .buttonM {
-            padding-left: 1.5rem;
+          .cartas{
+            margin: 0%;
+            margin-top: 2%;
           }
+
+          
 
         </style>
         <template is="dom-if" if="[[detailEnabled]]">
@@ -45,7 +59,7 @@ class ListPackages extends PolymerElement {
           ></selection-items>
         </template>
         <template is="dom-if" if="[[!detailEnabled]]">
-          <div class="container">
+          <div class="cartas">
             <div class="row">
               <template id="listRepeat" is="dom-repeat" items="[[arrayPackages]]">
                 <div class="col-sm-6">
@@ -78,14 +92,14 @@ class ListPackages extends PolymerElement {
         {name:"Técnico reparaciones electricas", status:"disable", value: 19},
         {name:"Técnico de luz", status:"disable", value: 8},
         {name:"Gas a domicilio", status:"disable", value: 56}
-      ]
+      ];
       }
     
     /**
      * Active details about package selected
      */
     showDetails(payload) {
-      this.set('detailEnabled', !this.detailEnabled );
+        this.set('detailEnabled', !this.detailEnabled);
     }
 }
 
