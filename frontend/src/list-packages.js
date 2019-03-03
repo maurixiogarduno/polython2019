@@ -3,6 +3,7 @@ import './shared-styles.js';
 import './selection-items.js';
 
 class ListPackages extends PolymerElement {
+<<<<<<< HEAD
     static get properties() {
         return {
             detailEnabled: {
@@ -13,6 +14,21 @@ class ListPackages extends PolymerElement {
                 type: Array,
                 value: []
             }
+=======
+    static get properties() { 
+      return { 
+        detailEnabled: {
+            type: Boolean,
+            value: false
+        },
+        arrayPackages: {
+          type: Array,
+          value: []
+        },
+        listItems: {
+          type: Array,
+          value: []
+>>>>>>> ed849cced8a3c4b76c37b84ab6bae2b562b23012
         }
     }
     static get template() {
@@ -39,9 +55,7 @@ class ListPackages extends PolymerElement {
           <div class="buttonM">
             <button type="button" class="btn btn-light" on-click="showDetails">Regresar</button>
           </div>
-          <selection-items list-items='
-            [{"name":"Plomeria","status":"disable", "value": 20},
-            {"name":"Ambulancia", "status":"disable", "value": 20}]'
+          <selection-items list-items='[[listItems]]'
           ></selection-items>
         </template>
         <template is="dom-if" if="[[!detailEnabled]]">
@@ -65,6 +79,7 @@ class ListPackages extends PolymerElement {
     }
 
     connectedCallback() {
+<<<<<<< HEAD
         super.connectedCallback();
         this.arrayPackages = [
             { title: 'Paquete 1', description: 'Paquete deportivo' },
@@ -74,6 +89,24 @@ class ListPackages extends PolymerElement {
         ];
     }
 
+=======
+      super.connectedCallback();
+      this.arrayPackages = [
+        {title:'Paquete 1',description: 'Paquete deportivo'}, 
+        {title:'Paquete2',description: 'Paquete ama de casa'}, 
+        {title:'Paquete3',description: 'Paquete estudiante'}, 
+        {title:'Paquete4',description: 'Paquete oficina'}];
+      this.listItems = [
+        {name:"Plomeria",status:"disable", value: 20},
+        {name:"Ambulancia", status:"disable", value: 20},
+        {name:"Enfermería", status:"disable", value: 12},
+        {name:"Técnico reparaciones electricas", status:"disable", value: 19},
+        {name:"Técnico de luz", status:"disable", value: 8},
+        {name:"Gas a domicilio", status:"disable", value: 56}
+      ]
+      }
+    
+>>>>>>> ed849cced8a3c4b76c37b84ab6bae2b562b23012
     /**
      * Active details about package selected
      */
