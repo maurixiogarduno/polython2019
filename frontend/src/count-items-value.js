@@ -41,7 +41,7 @@ class CountItemsValue extends PolymerElement {
         </style>
             <paper-item class="container">
             <div>Total mensual:</div>
-            <div>[[totalValue]]</div>
+            <div>$[[totalValue]] MXN</div>
             </paper-item>
         `;
     }
