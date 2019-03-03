@@ -10,6 +10,8 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './loginForm.js';
+import './registroForm.js'
 
 class ListServices extends PolymerElement {
   static get template() {
@@ -22,14 +24,28 @@ class ListServices extends PolymerElement {
         }
       </style>
 
-      <div class="card">
-        <div class="circle">2</div>
-        <h1>View Two</h1>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-        <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-      </div>
+      <login-form></login-form>
+    <!-- <registro-form></registro-form> -->
     `;
   }
+
+  static get properties() {
+            return {
+                prop1: {
+                    type: String,
+                    value: 'login page',
+                },
+            };
+        }
+
+    //     static get properties() {
+    //     return {
+    //         prop1: {
+    //             type: String,
+    //             value: 'registro page',
+    //         },
+    //     };
+    // }
 }
 
 window.customElements.define('list-services', ListServices);

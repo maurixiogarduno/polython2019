@@ -1,6 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer';
 import '@polymer/paper-card/paper-card.js';
 
+///CODIGO DE IMPORTACION DEL COMPONENTE CARD
+
 class CardView extends PolymerElement {
     static get template() {
         return html `

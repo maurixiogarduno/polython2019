@@ -89,6 +89,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Load your application shell -->
     <script type="module" src="src/my-app.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAlbZFkxsjCrOGebCsVSbD5fwRYPatjo2U",
+            authDomain: "peekbook-25a23.firebaseapp.com",
+            databaseURL: "https://peekbook-25a23.firebaseio.com",
+            projectId: "peekbook-25a23",
+            storageBucket: "peekbook-25a23.appspot.com",
+            messagingSenderId: "398104189471"
+        };
+        firebase.initializeApp(config);
+    </script>
+
     <!-- Add any global styles for body, document, etc. -->
     <style>
       body {
