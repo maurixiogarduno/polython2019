@@ -33,17 +33,22 @@ class UserData extends PolymerElement {
           width: 100%;
         }
 
-        iron-form{
+        iron-form {
           background-color: #FEFBFB;
-          margin-top: 5%;
+          padding-top: 3rem;
+          padding-bottom: 1rem;
         }
         
+        .form {
+          padding-top: 1rem;
+          margin: 1rem 1rem 1rem 1rem;
+        }
 
       </style>
 
   
         <iron-form>
-        <form id="form" method="get" action="/form/handler">
+        <form id="form" class="form" method="get" action="/form/handler">
           <h2>Mis datos</h2>
           <paper-input always-float-label label="Edad" type="number" class="line"></paper-input><br>
           <paper-radio-group selected="man">

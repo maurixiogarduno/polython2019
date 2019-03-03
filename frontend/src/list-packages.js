@@ -54,6 +54,7 @@ class ListPackages extends PolymerElement {
                   <div class="contenedor uk-animation-toggle">
                     <div class="uk-card uk-card-default uk-card-body">
                       <h3 class="uk-card-title">[[item.title]]</h3>
+                      <img src="images/[[item.imga]].jpg">
                       <p>[[item.description]]</p>
                       <button class="uk-button uk-button-text" on-click="showDetails">Contratar</button>
                     </div>
@@ -69,10 +70,10 @@ class ListPackages extends PolymerElement {
     connectedCallback() {
       super.connectedCallback();
       this.arrayPackages = [
-        {title:'Paquete 1',description: 'Paquete deportivo'}, 
-        {title:'Paquete2',description: 'Paquete ama de casa'}, 
-        {title:'Paquete3',description: 'Paquete estudiante'}, 
-        {title:'Paquete4',description: 'Paquete oficina'}];
+        {title:'Paquete1',description: 'Paquete deportivo', imga:'exercise'}, 
+        {title:'Paquete2',description: 'Paquete ama de casa', imga:'home'}, 
+        {title:'Paquete3',description: 'Paquete estudiante', imga:'student'}, 
+        {title:'Paquete4',description: 'Paquete oficina', imga:'oficce'}];
       this.listItems = [
         {name:"Plomeria",status:"disable", value: 20},
         {name:"Ambulancia", status:"disable", value: 20},

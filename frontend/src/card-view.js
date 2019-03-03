@@ -14,11 +14,14 @@ class CardView extends PolymerElement {
             display: flex;
           }
 
-          .flex-container > div {
+          .flex-container {
             margin: 10px;
-            padding: 20px;
+            padding-top: 1rem;
           }
 
+          .image-style {
+            padding-top: 3.5rem;
+          }
           peper-card{
             width: 100%;
           }
@@ -26,10 +29,7 @@ class CardView extends PolymerElement {
           
         }
       </style>
-
-
-       
-          <div class="flex-container">
+          <div class="flex-container image-style">
             <div>
               <paper-card class="imagen" heading="" image="./images/img1.svg" alt="Emmental">
               </paper-card>
@@ -43,7 +43,13 @@ class CardView extends PolymerElement {
             <div>
               <paper-card heading="Servicio" alt="Emmental">
                 <div class="card-content">
-                  Emmentaler  Emmental  a yellow, medium-hard cheese that originated  the area around Emmental, Switzerland. It  of the cheeses of Switzerland,   sometimes known  Swiss cheese.
+                 Somos una plataforma que ofrece servicios al alcance de todos.
+                 Llevamos hasta tu hogar cualquier necesidad que se te pueda presentar en el día
+                 a día.
+                 No tendrás que pagar una enorme cantidad por cada incidente o requerimiento de
+                 servicios, con nosotros, puedes ahorrar y prevenir.
+                 Deja que los expertos se pongan a tu servicio, sólo compra una de nuestros 
+                 flexibles paquetes que tenmos para ti.
                 </div>
                 <div class="card-actions">
                 </div>
