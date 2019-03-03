@@ -3,18 +3,6 @@ import './shared-styles.js';
 import './selection-items.js';
 
 class ListPackages extends PolymerElement {
-<<<<<<< HEAD
-    static get properties() {
-        return {
-            detailEnabled: {
-                type: Boolean,
-                value: false
-            },
-            arrayPackages: {
-                type: Array,
-                value: []
-            }
-=======
     static get properties() { 
       return { 
         detailEnabled: {
@@ -28,8 +16,8 @@ class ListPackages extends PolymerElement {
         listItems: {
           type: Array,
           value: []
->>>>>>> ed849cced8a3c4b76c37b84ab6bae2b562b23012
         }
+      }
     }
     static get template() {
         return html `
