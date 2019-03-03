@@ -51,7 +51,10 @@ class MapsDirections extends PolymerElement  {
     _inipMap() {
       this.directionsService = new google.maps.DirectionsService;
     }
-  
+    
+    /**
+     * Update polyline data dependence when map did changed
+     */
     _mapChanged() {
       if (typeof this.directionsService === 'undefined') {
         this._inipMap();
@@ -69,6 +72,9 @@ class MapsDirections extends PolymerElement  {
       }
     }
   
+    /**
+     * use directions service to obtain set of polylines and render the route
+     */
     _route() {
       // Abort attempts to _route if the API is not available yet or the
       // required attributes are blank.
