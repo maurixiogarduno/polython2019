@@ -1,4 +1,5 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import './list-items';
 import './shared-styles.js';
 
 class ListPackages extends PolymerElement {
@@ -18,6 +19,7 @@ class ListPackages extends PolymerElement {
           <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
           <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
         </div>
+        <list-items></list-items>
       `;
     }
 }
