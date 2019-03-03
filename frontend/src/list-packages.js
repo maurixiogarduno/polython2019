@@ -1,6 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './list-items';
 import './shared-styles.js';
+import './selection-items.js';
 
 class ListPackages extends PolymerElement {
     static get template() {
@@ -50,6 +50,7 @@ class ListPackages extends PolymerElement {
 
           </div>
         </div>
+<<<<<<< HEAD
       </div>
 
 
@@ -92,6 +93,9 @@ class ListPackages extends PolymerElement {
 
 
         <list-items list-items='[{"name":"Plomeria","status":"disable"}, {"name":"Ambulancia", "status":"disable"}]'></list-items>
+=======
+        <selection-items></selection-items>
+>>>>>>> fcc0b76f9e0962ced2b03a25b2322896cc669f26
       `;
     }
 }
