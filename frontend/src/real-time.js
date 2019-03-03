@@ -30,6 +30,10 @@ class RealTime extends PolymerElement {
         },
         pinA: {
           type: Object
+        },
+        zoom: {
+          type: Number,
+          value: 1
         }
     }
 }
@@ -82,9 +86,10 @@ class RealTime extends PolymerElement {
   initMap() {
     this.map = new google.maps.Map(this.shadowRoot.getElementById('map'), {
       center: {lat: 19.428647, lng: -99.206628},
-      zoom: 8,
+      zoom: this.zoom,
       disableDefaultUI: true
     });
+    console.log(this.map);
     this.initMakers();
   }
 
@@ -101,6 +106,8 @@ class RealTime extends PolymerElement {
       position: this.startAddress,
       map: this.map
     });
+    this.map.setZoom(this.zoom);
+    console.log(this.map);
   }
 
   getAPI() {
