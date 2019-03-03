@@ -33,7 +33,21 @@ class RealTime extends PolymerElement {
         },
         zoom: {
           type: Number,
-          value: 1
+          value: 16
+        },
+        simulatorCoor: {
+          type: Array,
+          value: [
+            { lat: 19.427787, lng: -99.203484 },
+            { lat: 19.427625, lng: -99.203935 },
+            { lat: 19.427514, lng: -99.204675 },
+            { lat: 19.427716, lng: -99.205308 },
+            { lat: 19.428202, lng: -99.205866 }
+          ]
+        },
+        simulatorCoorCont: {
+          type: Number,
+          value: 0
         }
     }
 }
@@ -69,18 +83,17 @@ class RealTime extends PolymerElement {
       `;
       
   }
-  static get properties() {
-    return {
-      prop1: {
-        type: String,
-        value: ''
-      }
-    };
-  }
+
   connectedCallback(){
     super.connectedCallback();
-    setTimeout(()=>{ this.initMap();}, 1000);
-    
+    setTimeout(()=>{ 
+      this.initMap();
+    }, 1000);
+    setInterval(()=>{
+      let currentLocation = this.providerLocation();
+      this.startAddress = new google.maps.LatLng(currentLocation);
+      this.pinB.setPosition(this.startAddress);
+    }, 3000);
   }
 
   initMap() {
@@ -89,13 +102,10 @@ class RealTime extends PolymerElement {
       zoom: this.zoom,
       disableDefaultUI: true
     });
-    console.log(this.map);
     this.initMakers();
   }
 
   initMakers() {
-    let _latlat = { lat: 19.427574, lng: -99.204418 };
-    this.startAddress = new google.maps.LatLng(_latlat);
     let _latlng = { lat: 19.428647, lng: -99.206628 };
     this.endAddress = new google.maps.LatLng(_latlng);
     this.pinA = new google.maps.Marker({
@@ -106,40 +116,20 @@ class RealTime extends PolymerElement {
       position: this.startAddress,
       map: this.map
     });
-    this.map.setZoom(this.zoom);
-    console.log(this.map);
+    
   }
 
-  getAPI() {
-    var xhttp = new XMLHttpRequest();
-    var _this = this;
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-           // Typical action to be performed when the document is ready:
-            var response = xhttp.responseText;
-            console.log(JSON.parse(response));
-            var json = (JSON.parse(response));
-            var gender = json.results[0].location.street;
-            console.log(gender);
-            _this.prop1 = (gender);
-        }
-    };
-    xhttp.open("GET", "https://api.randomuser.me/", true);
-    xhttp.send();
+  providerLocation() {
+    if (this.simulatorCoorCont < this.simulatorCoor.length) {
+      let location =  this.simulatorCoor[this.simulatorCoorCont];
+      this.simulatorCoorCont++;
+      return location;
+    } else {
+      this.simulatorCoorCont = 0;
+      let location =  this.simulatorCoor[this.simulatorCoorCont];
+      return location;
+    }
   }
-
-  postAPI() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-         if (this.readyState == 4 && this.status == 200) {
-             alert(this.responseText);
-         }
-    };
-    xhttp.open("POST", "Your Rest URL Here", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send("Your JSON Data Here");
-  }
-
 }
 
 window.customElements.define('real-time', RealTime);

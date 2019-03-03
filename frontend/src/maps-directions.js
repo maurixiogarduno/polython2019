@@ -107,7 +107,7 @@ class MapsDirections extends PolymerElement  {
             fillOpacity: this.rendererOptions.fillOpacity,
             map: this.map
           });
-          this.map.fitBounds(bounds);
+          //this.map.fitBounds(bounds);
         }
       });
     }
