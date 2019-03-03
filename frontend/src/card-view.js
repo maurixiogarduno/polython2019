@@ -47,24 +47,6 @@ class CardView extends PolymerElement {
           </div>
         </div>
       </div>
-       <!-- <div class="flex-container">
-      <div>
-        <paper-card heading="Servicio" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler  Emmental  a yellow, medium-hard cheese that originated  the area around Emmental, Switzerland. It  of the cheeses of Switzerland,   sometimes known  Swiss cheese.
-          </div>
-          <div class="card-actions">
-        </div>
-                </paper-card>
-            </div>
-
-
-        </div> -->
-
-
-
-
-
     `;
     }
 }

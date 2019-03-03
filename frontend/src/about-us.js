@@ -15,10 +15,6 @@ import './card-view.js';
 class AboutUs extends PolymerElement {
   static get template() {
     return html`
-
-
-
-
       <style include="shared-styles">
         :host {
           display: block;
@@ -26,7 +22,6 @@ class AboutUs extends PolymerElement {
           padding: 10px;
         }
       </style>
-
       <card-view></card-view>
     `;
   }
