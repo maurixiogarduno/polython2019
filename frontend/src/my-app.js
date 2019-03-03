@@ -91,8 +91,8 @@ class MyApp extends PolymerElement {
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="about-us" href="[[rootPath]]about-us">Acerca de nosotros</a>
-            <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
             <a name="user-data" href="[[rootPath]]user-data">Mis datos</a>
+            <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
             <a name="real-time" href="[[rootPath]]real-time">Real Time</a>
           </iron-selector>
         </app-drawer>
