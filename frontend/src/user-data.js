@@ -30,7 +30,7 @@ class UserData extends PolymerElement {
           color: white;
         }
         .line {
-          width: 50%;
+          width: 100%;
         }
       </style>
 
@@ -38,29 +38,29 @@ class UserData extends PolymerElement {
         <iron-form>
         <form id="form" method="get" action="/form/handler">
           <h2>Mis datos</h2>
-          <paper-input always-float-label label="Edad" type="number" class="line"></paper-input>
+          <paper-input always-float-label label="Edad" type="number" class="line"></paper-input><br>
           <paper-radio-group selected="man">
             Sexo:
             <paper-radio-button name="man">Masculino</paper-radio-button>
             <paper-radio-button name="woman">Femienino</paper-radio-button>
-          </paper-radio-group>
-          <paper-input always-float-label label="Ocupación" type="text" class="line"></paper-input>
+          </paper-radio-group><br><br>
+          <paper-input always-float-label label="Ocupación" type="text" class="line"></paper-input><br>
           <paper-radio-group selected="yesPet">
             Tiene mascotas:
             <paper-radio-button name="yesPet">si</paper-radio-button>
             <paper-radio-button name="notPet">no</paper-radio-button>
-          </paper-radio-group><br>
+          </paper-radio-group><br><br>
           <paper-radio-group selected="single">
             Estado civil:
             <paper-radio-button name="single">Soltero</paper-radio-button>
             <paper-radio-button name="married">Casado</paper-radio-button>
             <paper-radio-button name="free">Cónyuge</paper-radio-button>
-          </paper-radio-group><br>
+          </paper-radio-group><br><br>
           <paper-radio-group selected="yesChildren">
             Cuenta con hijos:
             <paper-radio-button name="yesChildren">si</paper-radio-button>
             <paper-radio-button name="noChildren">no</paper-radio-button>
-          </paper-radio-group><br>
+          </paper-radio-group><br><br>
           <paper-button class="reset" raised on-click="resetForm">Resetear</paper-button>
           <paper-button class="button-acept" raised>Aceptar</paper-button>
         </form>
