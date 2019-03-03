@@ -30,9 +30,7 @@ class UserData extends PolymerElement {
           color: white;
         }
         .line {
-          display: flex;
-          justify-content: space-around;
-          padding-rigth: 1rem;
+          width: 50%;
         }
       </style>
 
@@ -40,13 +38,13 @@ class UserData extends PolymerElement {
         <iron-form>
         <form id="form" method="get" action="/form/handler">
           <h2>Mis datos</h2>
-          <paper-input always-float-label label="Edad" type="number"></paper-input>
+          <paper-input always-float-label label="Edad" type="number" class="line"></paper-input>
           <paper-radio-group selected="man">
             Sexo:
             <paper-radio-button name="man">Masculino</paper-radio-button>
             <paper-radio-button name="woman">Femienino</paper-radio-button>
           </paper-radio-group>
-          <paper-input always-float-label label="Ocupación" type="text"></paper-input>
+          <paper-input always-float-label label="Ocupación" type="text" class="line"></paper-input>
           <paper-radio-group selected="yesPet">
             Tiene mascotas:
             <paper-radio-button name="yesPet">si</paper-radio-button>
@@ -58,7 +56,7 @@ class UserData extends PolymerElement {
             <paper-radio-button name="married">Casado</paper-radio-button>
             <paper-radio-button name="free">Cónyuge</paper-radio-button>
           </paper-radio-group><br>
-          <paper-radio-group selected="single">
+          <paper-radio-group selected="yesChildren">
             Cuenta con hijos:
             <paper-radio-button name="yesChildren">si</paper-radio-button>
             <paper-radio-button name="noChildren">no</paper-radio-button>
