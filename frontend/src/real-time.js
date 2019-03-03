@@ -1,5 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import '@polymer/iron-jsonp-library/iron-jsonp-library.js'
 
 class RealTime extends PolymerElement {
   static get template() {
@@ -10,41 +11,46 @@ class RealTime extends PolymerElement {
       <style include="shared-styles">
         :host {
           display: block;
-
           padding: 10px;
         }
+        .map {
+          display: contents;
+          width: 50%;
+          height: 50%;
+        }
       </style>
-      <h2>Hello [[prop1]]</h2>
-      <div class="container">
-      <h1 class="text-center">A tu alcanze</h1>
-      <div class="row">
-        <div class="col-sm">
-        <img src="./images/undraw_map_1r69.svg" alt="" height="500" width="500">
-        </div>
-        <div class="col-sm">
-        <br>
-        <p>Es una plataforma que te permite tener varios servicios por un cobro mensual fijo.</p>
-        </div>
-      </div>
-    </div>
-
-    <button on-click="getAPI">Kick Me</button>
-    `;
+      <div id="map" class="map"></div>
+      <iron-jsonp-library
+            library-url="https://maps.googleapis.com/maps/api/js?callback=%%callback%%&key=AIzaSyDxKWbjzJg5tzXE2vyDAg_XEcUeXUfF6sQ"
+            notify-event="api-load"
+            library-loaded="{{loaded}}">
+        </iron-jsonp-library>
+      <span>Library Loaded: [[loaded]]</span>
+      `;
+      
   }
   static get properties() {
     return {
       prop1: {
         type: String,
-        value: 'odio polymer'
+        value: ''
       }
     };
   }
   connectedCallback(){
     super.connectedCallback();
-    setInterval(() => {
-      this.getAPI();
-    }, 2000);
+    setTimeout(()=>{ this.initMap();}, 1000);
+    
   }
+
+  initMap() {
+    console.log(this.shadowRoot.getElementById('map'));
+    let map = new google.maps.Map(this.shadowRoot.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+  }
+
   getAPI() {
     var xhttp = new XMLHttpRequest();
     var _this = this;
