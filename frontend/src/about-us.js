@@ -10,10 +10,15 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import './card-view.js';
 
 class AboutUs extends PolymerElement {
   static get template() {
     return html`
+
+
+
+
       <style include="shared-styles">
         :host {
           display: block;
@@ -21,12 +26,8 @@ class AboutUs extends PolymerElement {
           padding: 10px;
         }
       </style>
-      <h1>A tu alcanze</h1>
-      <div class="card">
-        <h1>About</h1>
-        <p>banana.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-      </div>
+
+      <card-view></card-view>
     `;
   }
 }
