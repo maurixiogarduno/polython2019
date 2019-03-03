@@ -80,6 +80,10 @@ class LoginForm extends PolymerElement {
           margin: 3rem;
         }
 
+        .registro{
+          background-color: white;
+        }
+
       </style>
     <article>
     <header>
@@ -87,7 +91,7 @@ class LoginForm extends PolymerElement {
       <br>
       
       <img src="./images/Recurso 5@2x.png">
-      <h2 style="color: black;">POLYTECH</h2>
+      
       </div>
 			
 		</header>
@@ -106,7 +110,7 @@ class LoginForm extends PolymerElement {
           </div>
 
           <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">Login</button>
-          <button class="uk-button uk-button-secondary uk-width-1-1">Registro</button>
+          <button class="uk-button uk-button uk-width-1-1 registro">Registro</button>
 
 
           
