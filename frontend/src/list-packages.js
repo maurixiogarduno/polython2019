@@ -21,7 +21,6 @@ class ListPackages extends PolymerElement {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
           :host {
-            position: relative;
             padding: 1.5rem;
           }
 
@@ -49,7 +48,7 @@ class ListPackages extends PolymerElement {
               <template id="listRepeat" is="dom-repeat" items="[[arrayPackages]]">
                 <div class="col-sm-6">
                   <div class="contenedor uk-animation-toggle">
-                    <div class="uk-card uk-card-default uk-card-body uk-animation-shake">
+                    <div class="uk-card uk-card-default uk-card-body">
                       <h3 class="uk-card-title">[[item.title]]</h3>
                       <p>[[item.description]]</p>
                       <button class="uk-button uk-button-text" on-click="showDetails">Contratar</button>
@@ -73,7 +72,7 @@ class ListPackages extends PolymerElement {
       }
     
     /**
-     * Active details about package
+     * Active details about package selected
      */
     showDetails(payload) {
       this.set('detailEnabled', !this.detailEnabled );

@@ -10,6 +10,12 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './shared-styles.js';
+import '@polymer/iron-form/iron-form.js';
+import '@polymer/iron-input/iron-input.js';
+import '@polymer/paper-input/paper-input.js';
+import '@polymer/paper-radio-button/paper-radio-button.js';
+import '@polymer/paper-radio-group/paper-radio-group.js';
+import '@polymer/paper-button/paper-button.js';
 
 class UserData extends PolymerElement {
   static get template() {
@@ -17,18 +23,59 @@ class UserData extends PolymerElement {
       <style include="shared-styles">
         :host {
           display: block;
-
           padding: 10px;
+        }
+        .button-acept {
+          background-color: #1e87f0;
+          color: white;
+        }
+        .line {
+          display: flex;
+          justify-content: space-around;
+          padding-rigth: 1rem;
         }
       </style>
 
       <div class="card">
-        <div class="circle">3</div>
-        <h1>View Three</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+        <iron-form>
+        <form id="form" method="get" action="/form/handler">
+          <h2>Mis datos</h2>
+          <paper-input always-float-label label="Edad" type="number"></paper-input>
+          <paper-radio-group selected="man">
+            Sexo:
+            <paper-radio-button name="man">Masculino</paper-radio-button>
+            <paper-radio-button name="woman">Femienino</paper-radio-button>
+          </paper-radio-group>
+          <paper-input always-float-label label="Ocupación" type="text"></paper-input>
+          <paper-radio-group selected="yesPet">
+            Tiene mascotas:
+            <paper-radio-button name="yesPet">si</paper-radio-button>
+            <paper-radio-button name="notPet">no</paper-radio-button>
+          </paper-radio-group><br>
+          <paper-radio-group selected="single">
+            Estado civil:
+            <paper-radio-button name="single">Soltero</paper-radio-button>
+            <paper-radio-button name="married">Casado</paper-radio-button>
+            <paper-radio-button name="free">Cónyuge</paper-radio-button>
+          </paper-radio-group><br>
+          <paper-radio-group selected="single">
+            Cuenta con hijos:
+            <paper-radio-button name="yesChildren">si</paper-radio-button>
+            <paper-radio-button name="noChildren">no</paper-radio-button>
+          </paper-radio-group><br>
+          <paper-button class="reset" raised on-click="resetForm">Resetear</paper-button>
+          <paper-button class="button-acept" raised>Aceptar</paper-button>
+        </form>
+      </iron-form>
       </div>
     `;
+  }
+
+  /**
+   * Reset all values in the forms
+   */
+  resetForm() {
+    this.shadowRoot.getElementById('form').reset();
   }
 }
 

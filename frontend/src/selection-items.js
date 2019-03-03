@@ -35,6 +35,16 @@ class SelectionItems extends PolymerElement {
         </div>
     `;
     }
+
+    /**
+     * Reset list items
+     */
+    listItemsChanged() {
+        let auxArray = [];
+        auxArray = this.listItems;
+        this.listItems = [];
+        this.listItems = auxArray;
+    }
 }
 
 window.customElements.define('selection-items', SelectionItems);
