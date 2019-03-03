@@ -33,7 +33,7 @@ class RealTime extends PolymerElement {
         },
         zoom: {
           type: Number,
-          value: 16
+          value: 17
         },
         simulatorCoor: {
           type: Array,
