@@ -19,7 +19,7 @@ class RealTime extends PolymerElement {
       <h1 class="text-center">A tu alcanze</h1>
       <div class="row">
         <div class="col-sm">
-        <img src="./images/undraw_map_1r69.svg" alt="Smiley face" height="500" width="500">
+        <img src="./images/undraw_map_1r69.svg" alt="" height="500" width="500">
         </div>
         <div class="col-sm">
         <br>
