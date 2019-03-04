@@ -64,7 +64,7 @@ class RealTime extends PolymerElement {
       </style>
       <div id="map" class="map"></div>
       <iron-jsonp-library
-            library-url="https://maps.googleapis.com/maps/api/js?callback=%%callback%%&key=AIzaSyDxKWbjzJg5tzXE2vyDAg_XEcUeXUfF6sQ"
+            library-url="https://maps.googleapis.com/maps/api/js?callback=%%callback%%&key="
             notify-event="api-load"
             library-loaded="{{loaded}}">
         </iron-jsonp-library>
