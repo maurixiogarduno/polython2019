@@ -40,12 +40,15 @@ class CountItemsValue extends PolymerElement {
             }
         </style>
             <paper-item class="container">
-            <div>Total:</div>
-            <div>[[totalValue]]</div>
+            <div>Total mensual:</div>
+            <div>$[[totalValue]] MXN</div>
             </paper-item>
         `;
     }
 
+    /**
+     * Get object's array and plus when status is active 
+     */
     _getTotalValue() {
         this.totalValue = 0;
         for (let item of this.listItems) {

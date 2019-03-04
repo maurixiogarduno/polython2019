@@ -10,7 +10,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="generator" content="Polymer Starter Kit">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
@@ -60,27 +61,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="msapplication-tap-highlight" content="no">
 
     <script>
-      /**
-      * [polymer-root-path]
-      *
-      * Leave this line unchanged if you intend to serve your app from the root
-      * path (e.g., with URLs like `my.domain/` and `my.domain/view1`).
-      *
-      * If you intend to serve your app from a non-root path (e.g., with URLs
-      * like `my.domain/my-app/` and `my.domain/my-app/view1`), edit this line
-      * to indicate the path from which you'll be serving, including leading
-      * and trailing slashes (e.g., `/my-app/`).
-      */
-      window.MyAppGlobals = { rootPath: '/' };
+        /**
+         * [polymer-root-path]
+         *
+         * Leave this line unchanged if you intend to serve your app from the root
+         * path (e.g., with URLs like `my.domain/` and `my.domain/view1`).
+         *
+         * If you intend to serve your app from a non-root path (e.g., with URLs
+         * like `my.domain/my-app/` and `my.domain/my-app/view1`), edit this line
+         * to indicate the path from which you'll be serving, including leading
+         * and trailing slashes (e.g., `/my-app/`).
+         */
+        window.MyAppGlobals = {
+            rootPath: '/'
+        };
 
-      // Load and register pre-caching Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('service-worker.js', {
-            scope: MyAppGlobals.rootPath
-          });
-        });
-      }
+        // Load and register pre-caching Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js', {
+                    scope: MyAppGlobals.rootPath
+                });
+            });
+        }
     </script>
 
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
@@ -89,26 +92,42 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- Load your application shell -->
     <script type="module" src="src/my-app.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAlbZFkxsjCrOGebCsVSbD5fwRYPatjo2U",
+            authDomain: "peekbook-25a23.firebaseapp.com",
+            databaseURL: "https://peekbook-25a23.firebaseio.com",
+            projectId: "peekbook-25a23",
+            storageBucket: "peekbook-25a23.appspot.com",
+            messagingSenderId: "398104189471"
+        };
+        firebase.initializeApp(config);
+    </script>
+
     <!-- Add any global styles for body, document, etc. -->
     <style>
-      body {
-        margin: 0;
-        font-family: "Roboto", "Noto", sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background: rgb(79,79,181);
-background: -moz-linear-gradient(top, rgba(79,79,181,1) 40%, rgba(79,79,181,1) 40%, rgba(172,172,183,1) 96%);
-background: -webkit-linear-gradient(top, rgba(79,79,181,1) 40%,rgba(79,79,181,1) 40%,rgba(172,172,183,1) 96%);
-background: linear-gradient(to bottom, rgba(79,79,181,1) 40%,rgba(79,79,181,1) 40%,rgba(172,172,183,1) 96%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f4fb5', endColorstr='#acacb7',GradientType=0 );
-      }
+        body {
+            margin: 0;
+            font-family: "Roboto", "Noto", sans-serif;
+            line-height: 1.5;
+            min-height: 100vh;
+            background: rgb(99, 110, 127);
+            background: -moz-linear-gradient(-45deg, rgba(99, 110, 127, 1) 29%, rgba(30, 47, 81, 1) 75%);
+            background: -webkit-linear-gradient(-45deg, rgba(99, 110, 127, 1) 29%, rgba(30, 47, 81, 1) 75%);
+            background: linear-gradient(135deg, rgba(99, 110, 127, 1) 29%, rgba(30, 47, 81, 1) 75%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#636e7f', endColorstr='#1e2f51', GradientType=1);
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <my-app></my-app>
     <noscript>
       Please enable JavaScript to view this website.
     </noscript>
     <!-- Built with love using Polymer Starter Kit -->
-  </body>
+</body>
+
 </html>

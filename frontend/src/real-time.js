@@ -33,7 +33,7 @@ class RealTime extends PolymerElement {
         },
         zoom: {
           type: Number,
-          value: 16
+          value: 17
         },
         simulatorCoor: {
           type: Array,
@@ -53,9 +53,6 @@ class RealTime extends PolymerElement {
 }
   static get template() {
     return html`
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
       <style include="shared-styles">
         :host {
           display: block;
@@ -63,13 +60,11 @@ class RealTime extends PolymerElement {
         }
         .map {
           display: contents;
-          width: 50%;
-          height: 50%;
         }
       </style>
       <div id="map" class="map"></div>
       <iron-jsonp-library
-            library-url="https://maps.googleapis.com/maps/api/js?callback=%%callback%%&key=AIzaSyDxKWbjzJg5tzXE2vyDAg_XEcUeXUfF6sQ"
+            library-url="https://maps.googleapis.com/maps/api/js?callback=%%callback%%&key="
             notify-event="api-load"
             library-loaded="{{loaded}}">
         </iron-jsonp-library>
@@ -84,6 +79,9 @@ class RealTime extends PolymerElement {
       
   }
 
+  /**
+   * Init Map after 1s while rendering, and set interval to request coordinate
+   */
   connectedCallback(){
     super.connectedCallback();
     setTimeout(()=>{ 
@@ -96,6 +94,9 @@ class RealTime extends PolymerElement {
     }, 3000);
   }
 
+  /**
+   * Init map Object whit custom properties
+   */
   initMap() {
     this.map = new google.maps.Map(this.shadowRoot.getElementById('map'), {
       center: {lat: 19.428647, lng: -99.206628},
@@ -105,6 +106,9 @@ class RealTime extends PolymerElement {
     this.initMakers();
   }
 
+  /**
+   * Init two makers, only the first is setted
+   */
   initMakers() {
     let _latlng = { lat: 19.428647, lng: -99.206628 };
     this.endAddress = new google.maps.LatLng(_latlng);
@@ -119,6 +123,9 @@ class RealTime extends PolymerElement {
     
   }
 
+  /**
+   * Loop proveding location in array testing
+   */
   providerLocation() {
     if (this.simulatorCoorCont < this.simulatorCoor.length) {
       let location =  this.simulatorCoor[this.simulatorCoorCont];

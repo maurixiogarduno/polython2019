@@ -22,6 +22,7 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
+import './loginForm.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -40,6 +41,10 @@ class MyApp extends PolymerElement {
           --app-secondary-color: black;
 
           display: block;
+        }
+
+        :host([hidden]), [hidden] {
+          display: none !important;
         }
 
         app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -78,16 +83,16 @@ class MyApp extends PolymerElement {
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
+      <login-form hidden$="[[hideLogin]]" on-login-success="_handleSesion"></login-form>
+      <app-drawer-layout fullbleed="" narrow="{{narrow}}" hidden$="[[!hideLogin]]">
 
-      <app-drawer-layout fullbleed="" narrow="{{narrow}}">
         <!-- Drawer content -->
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="about-us" href="[[rootPath]]about-us">Acerca de nosotros</a>
-            <a name="list-services" href="[[rootPath]]list-services">Nuestros servicios</a>
-            <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
             <a name="user-data" href="[[rootPath]]user-data">Mis datos</a>
+            <a name="list-packages" href="[[rootPath]]list-packages">Mis paquetes</a>
             <a name="real-time" href="[[rootPath]]real-time">Real Time</a>
           </iron-selector>
         </app-drawer>
@@ -104,7 +109,6 @@ class MyApp extends PolymerElement {
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <about-us name="about-us"></about-us>
-            <list-services name="list-services"></list-services>
             <user-data name="user-data"></user-data>
             <list-packages name="list-packages"></list-packages>
             <real-time name="real-time"></real-time>
@@ -116,16 +120,20 @@ class MyApp extends PolymerElement {
   }
 
   static get properties() {
-    return {
-      page: {
-        type: String,
-        reflectToAttribute: true,
-        observer: '_pageChanged'
-      },
-      routeData: Object,
-      subroute: Object
-    };
-  }
+        return {
+            page: {
+                type: String,
+                reflectToAttribute: true,
+                observer: '_pageChanged'
+            },
+            routeData: Object,
+            subroute: Object,
+            hideLogin: {
+                type: Boolean,
+                value: false
+            }
+        };
+    }
 
   static get observers() {
     return [
@@ -140,17 +148,21 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'about-us';
-    } else if (['about-us', 'list-services', 'user-data','list-packages','real-time'].indexOf(page) !== -1) {
+    } else if (['about-us', 'user-data','list-packages','real-time'].indexOf(page) !== -1) {
       this.page = page;
     } else {
-      this.page = 'view404';
+      this.page = 'about-us';
     }
 
     // Close a non-persistent drawer when the page & route are changed.
     if (!this.$.drawer.persistent) {
-      this.$.drawer.close();
-    }
+            this.$.drawer.close();
+        }
   }
+
+  _handleSesion() {
+       this.hideLogin = true;
+   }
 
   _pageChanged(page) {
     // Import the page component on demand.
@@ -160,9 +172,6 @@ class MyApp extends PolymerElement {
     switch (page) {
       case 'about-us':
         import('./about-us.js');
-        break;
-      case 'list-services':
-        import('./list-services.js');
         break;
       case 'user-data':
         import('./user-data.js');

@@ -14,8 +14,8 @@ import './list-items.js';
 import './count-items-value.js';
 
 class SelectionItems extends PolymerElement {
-    static get properties() { 
-        return { 
+    static get properties() {
+        return {
             listItems: {
                 type: Array,
                 value: []

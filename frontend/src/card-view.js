@@ -1,94 +1,63 @@
 import { PolymerElement, html } from '@polymer/polymer';
 import '@polymer/paper-card/paper-card.js';
 
+///CODIGO DE IMPORTACION DEL COMPONENTE CARD
+
 class CardView extends PolymerElement {
     static get template() {
         return html `
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
 
         <style include="shared-styles">
         .flex-container {
             display: flex;
           }
 
-          .flex-container > div {
+          .flex-container {
             margin: 10px;
-            padding: 20px;
-
+            padding-top: 1rem;
           }
 
-          .imagen{
-            border-radius: 50px 20px;
+          .image-style {
+            padding-top: 3.5rem;
           }
+          peper-card{
+            width: 100%;
+          }
+
+          
         }
       </style>
-
-      <div class="row">
-        <div class="col-sm-6">
-
-        <div class="flex-container">
+          <div class="flex-container image-style">
+            <div>
+              <paper-card class="imagen" heading="" image="./images/img1.svg" alt="Emmental">
+              </paper-card>
+            </div>
+          </div>
+        </div>
         <div>
-                <paper-card class="imagen" heading="" image="./images/img1.png" alt="Emmental">
 
-            </paper-card>
-        </div>
-
-
-    </div>
-
-        </div>
-
-        <div class="col-sm-6">
-
-
-        <div class="flex-container">
+        
+          <div class="flex-container">
             <div>
-                    <paper-card heading="Servicio" alt="Emmental">
-                    <div class="card-content">
-                    Emmentaler  Emmental  a yellow, medium-hard cheese that originated  the area around Emmental, Switzerland. It  of the cheeses of Switzerland,   sometimes known  Swiss cheese.
-                    </div>
-                    <div class="card-actions">
-
-                    </div>
-                </paper-card>
+              <paper-card heading="Servicio" alt="Emmental">
+                <div class="card-content">
+                 Somos una plataforma que ofrece servicios al alcance de todos.
+                 Llevamos hasta tu hogar cualquier necesidad que se te pueda presentar en el día
+                 a día.
+                 No tendrás que pagar una enorme cantidad por cada incidente o requerimiento de
+                 servicios, con nosotros, puedes ahorrar y prevenir.
+                 Deja que los expertos se pongan a tu servicio, sólo compra una de nuestros 
+                 flexibles paquetes que tenmos para ti.
+                </div>
+                <div class="card-actions">
+                </div>
+              </paper-card>
+              </div>
             </div>
-
-
-        </div>
-
-        </div>
-      </div>
-
-      </div>
-
-
-
-
-
-
-       <!-- <div class="flex-container">
-            <div>
-                    <paper-card heading="Servicio" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-                    <div class="card-content">
-                    Emmentaler  Emmental  a yellow, medium-hard cheese that originated  the area around Emmental, Switzerland. It  of the cheeses of Switzerland,   sometimes known  Swiss cheese.
-                    </div>
-                    <div class="card-actions">
-
-                    </div>
-                </paper-card>
-            </div>
-
-
-        </div> -->
-
-
-
-
+          </div>
+        
 
     `;
     }

@@ -12,6 +12,10 @@ class ListPackages extends PolymerElement {
         arrayPackages: {
           type: Array,
           value: []
+        },
+        listItems: {
+          type: Array,
+          value: []
         }
       }
     }
@@ -27,29 +31,30 @@ class ListPackages extends PolymerElement {
           .contenedor{
             margin-top: 3%;
           }
-
-          .buttonM {
-            padding-left: 1.5rem;
+          .cartas{
+            margin: 0%;
+            margin-top: 2%;
           }
+
+          
 
         </style>
         <template is="dom-if" if="[[detailEnabled]]">
           <div class="buttonM">
             <button type="button" class="btn btn-light" on-click="showDetails">Regresar</button>
           </div>
-          <selection-items list-items='
-            [{"name":"Plomeria","status":"disable", "value": 20},
-            {"name":"Ambulancia", "status":"disable", "value": 20}]'
+          <selection-items list-items='[[listItems]]'
           ></selection-items>
         </template>
         <template is="dom-if" if="[[!detailEnabled]]">
-          <div class="container">
+          <div class="cartas">
             <div class="row">
               <template id="listRepeat" is="dom-repeat" items="[[arrayPackages]]">
                 <div class="col-sm-6">
                   <div class="contenedor uk-animation-toggle">
                     <div class="uk-card uk-card-default uk-card-body">
                       <h3 class="uk-card-title">[[item.title]]</h3>
+                      <img src="images/[[item.imga]].jpg">
                       <p>[[item.description]]</p>
                       <button class="uk-button uk-button-text" on-click="showDetails">Contratar</button>
                     </div>
@@ -65,17 +70,25 @@ class ListPackages extends PolymerElement {
     connectedCallback() {
       super.connectedCallback();
       this.arrayPackages = [
-        {title:'Paquete 1',description: 'Paquete deportivo'}, 
-        {title:'Paquete2',description: 'Paquete ama de casa'}, 
-        {title:'Paquete3',description: 'Paquete estudiante'}, 
-        {title:'Paquete4',description: 'Paquete oficina'}];
+        {title:'Paquete1',description: 'Paquete deportivo', imga:'exercise'}, 
+        {title:'Paquete2',description: 'Paquete ama de casa', imga:'home'}, 
+        {title:'Paquete3',description: 'Paquete estudiante', imga:'student'}, 
+        {title:'Paquete4',description: 'Paquete oficina', imga:'oficce'}];
+      this.listItems = [
+        {name:"Plomeria",status:"disable", value: 20},
+        {name:"Ambulancia", status:"disable", value: 20},
+        {name:"Enfermería", status:"disable", value: 12},
+        {name:"Técnico reparaciones electricas", status:"disable", value: 19},
+        {name:"Técnico de luz", status:"disable", value: 8},
+        {name:"Gas a domicilio", status:"disable", value: 56}
+      ];
       }
     
     /**
      * Active details about package selected
      */
     showDetails(payload) {
-      this.set('detailEnabled', !this.detailEnabled );
+        this.set('detailEnabled', !this.detailEnabled);
     }
 }
 

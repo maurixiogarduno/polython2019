@@ -21,7 +21,7 @@ class MyView404 extends PolymerElement {
         }
       </style>
 
-      Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
+      Error Temporal <a href="[[rootPath]]">Navega al menu</a>
     `;
   }
 }
